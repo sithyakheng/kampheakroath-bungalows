@@ -1,13 +1,20 @@
 'use client'
 
-export default function Contact() {
+interface ContactProps {
+  translations: {
+    contactTitle: string
+    contactSubtitle: string
+  }
+}
+
+export default function Contact({ translations }: ContactProps) {
   return (
     <section id="contact" className="py-20 bg-[#f5f0e8]">
       <div className="max-w-4xl mx-auto px-6 text-center">
         <h2 className="text-4xl font-bold text-[#1a3a2a] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
-          Contact Us
+          {translations.contactTitle}
         </h2>
-        <p className="text-gray-600 mb-12">We would love to hear from you</p>
+        <p className="text-gray-600 mb-12">{translations.contactSubtitle}</p>
         <div className="flex flex-col items-center gap-4">
           <a href="https://wa.me/855016890403" target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-3 px-8 py-4 rounded-full text-white font-semibold w-64 justify-center"
