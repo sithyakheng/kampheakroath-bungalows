@@ -1,12 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-
-type Props = {
-  t: Record<string, string | string[]>
-  lang?: string
-  setLang?: (lang: 'en' | 'km') => void
-}
+import { Props } from '@/types/translations'
 
 export default function About({ t }: Props) {
   return (

@@ -1,10 +1,6 @@
 'use client'
 
-type Props = {
-  t: Record<string, string | string[]>
-  lang?: string
-  setLang?: (lang: 'en' | 'km') => void
-}
+import { Props } from '@/types/translations'
 
 export default function Contact({ t }: Props) {
   return (

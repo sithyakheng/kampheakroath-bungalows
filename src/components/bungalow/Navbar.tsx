@@ -1,12 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-
-type Props = {
-  t: Record<string, string | string[]>
-  lang: 'en' | 'km'
-  setLang: (lang: 'en' | 'km') => void
-}
+import { Props } from '@/types/translations'
 
 export default function Navbar({ lang, setLang, t }: Props) {
   const [scrolled, setScrolled] = useState(false)
