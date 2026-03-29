@@ -39,9 +39,7 @@ export default function Hero({ t }: Props) {
           </motion.p>
           
           <motion.a
-            href="https://wa.me/855016890403"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="tel:+855016890403"
             className="btn-primary inline-block w-full md:w-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
