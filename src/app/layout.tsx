@@ -6,6 +6,9 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'Kampheakroath Bungalows - Riverside Resort in Kampot, Cambodia',
   description: 'A peaceful riverside retreat nestled in the lush greenery of Kampot. Kampheakroath Bungalows offers an authentic Cambodian natural experience with modern comforts.',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({

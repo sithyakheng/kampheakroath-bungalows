@@ -2,15 +2,13 @@
 
 import { useState, useEffect } from 'react'
 
-interface NavbarProps {
+type Props = {
+  t: Record<string, string | string[]>
   lang: 'en' | 'km'
   setLang: (lang: 'en' | 'km') => void
-  t: {
-    nav: string[]
-  }
 }
 
-export default function Navbar({ lang, setLang, t }: NavbarProps) {
+export default function Navbar({ lang, setLang, t }: Props) {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {

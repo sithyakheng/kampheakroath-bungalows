@@ -2,15 +2,13 @@
 
 import { motion } from 'framer-motion'
 
-interface HeroProps {
-  t: {
-    heroTitle: string
-    heroSubtitle: string
-    heroBtn: string
-  }
+type Props = {
+  t: Record<string, string | string[]>
+  lang?: string
+  setLang?: (lang: 'en' | 'km') => void
 }
 
-export default function Hero({ t }: HeroProps) {
+export default function Hero({ t }: Props) {
   return (
     <section className="relative h-screen overflow-hidden">
       <img

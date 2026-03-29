@@ -2,7 +2,13 @@
 
 import { motion } from 'framer-motion'
 
-export default function About() {
+type Props = {
+  t: Record<string, string | string[]>
+  lang?: string
+  setLang?: (lang: 'en' | 'km') => void
+}
+
+export default function About({ t }: Props) {
   return (
     <section id="about" className="section-padding bg-yellow-50">
       <div className="container-max">

@@ -2,7 +2,13 @@
 
 import { motion } from 'framer-motion'
 
-export default function Gallery() {
+type Props = {
+  t: Record<string, string | string[]>
+  lang?: string
+  setLang?: (lang: 'en' | 'km') => void
+}
+
+export default function Gallery({ t }: Props) {
   return (
     <section id="gallery" className="section-padding bg-green-900">
       <div className="container-max">

@@ -3,40 +3,46 @@
 import { motion } from 'framer-motion'
 import { Wifi, Car, Waves, Utensils, Shirt, Coffee } from 'lucide-react'
 
-const amenities = [
-  {
-    icon: Wifi,
-    title: 'Free Wi-Fi',
-    description: 'High-speed internet available throughout the property'
-  },
-  {
-    icon: Car,
-    title: 'Free Parking',
-    description: 'Secure parking space for all our guests'
-  },
-  {
-    icon: Waves,
-    title: 'Outdoor Pool',
-    description: 'Refreshing pool surrounded by tropical gardens'
-  },
-  {
-    icon: Utensils,
-    title: 'Restaurant on site',
-    description: 'Delicious local and international cuisine'
-  },
-  {
-    icon: Shirt,
-    title: 'Laundry Service',
-    description: 'Convenient laundry service available'
-  },
-  {
-    icon: Coffee,
-    title: 'Paid Breakfast',
-    description: 'Start your day with a delicious breakfast'
-  }
-]
+type Props = {
+  t: Record<string, string | string[]>
+  lang?: string
+  setLang?: (lang: 'en' | 'km') => void
+}
 
-export default function Amenities() {
+export default function Amenities({ t }: Props) {
+  const amenities = [
+    {
+      icon: Wifi,
+      title: t.wifi || 'Free Wi-Fi',
+      description: t.wifiDesc || 'High-speed internet available throughout the property'
+    },
+    {
+      icon: Car,
+      title: t.parking || 'Free Parking',
+      description: t.parkingDesc || 'Secure parking space for all our guests'
+    },
+    {
+      icon: Waves,
+      title: t.pool || 'Outdoor Pool',
+      description: t.poolDesc || 'Refreshing pool surrounded by tropical gardens'
+    },
+    {
+      icon: Utensils,
+      title: t.restaurant || 'Restaurant on site',
+      description: t.restaurantDesc || 'Delicious local and international cuisine'
+    },
+    {
+      icon: Shirt,
+      title: t.laundry || 'Laundry Service',
+      description: t.laundryDesc || 'Convenient laundry service available'
+    },
+    {
+      icon: Coffee,
+      title: t.breakfast || 'Paid Breakfast',
+      description: t.breakfastDesc || 'Start your day with a delicious breakfast'
+    }
+  ]
+
   return (
     <section id="amenities" className="section-padding bg-yellow-100">
       <div className="container-max">
@@ -48,10 +54,10 @@ export default function Amenities() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-green-900 mb-4">
-            Amenities
+            {t.amenitiesTitle || 'Amenities'}
           </h2>
           <p className="text-gray-700 text-lg">
-            Everything you need for a comfortable stay
+            {t.amenitiesSubtitle || 'Everything you need for a comfortable stay'}
           </p>
         </motion.div>
 

@@ -1,13 +1,12 @@
 'use client'
 
-interface ContactProps {
-  t: {
-    contactTitle: string
-    contactSubtitle: string
-  }
+type Props = {
+  t: Record<string, string | string[]>
+  lang?: string
+  setLang?: (lang: 'en' | 'km') => void
 }
 
-export default function Contact({ t }: ContactProps) {
+export default function Contact({ t }: Props) {
   return (
     <section id="contact" className="py-20 bg-[#f5f0e8]">
       <div className="max-w-4xl mx-auto px-6 text-center">
