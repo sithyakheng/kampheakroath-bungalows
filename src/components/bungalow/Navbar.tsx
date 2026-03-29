@@ -5,6 +5,7 @@ import { NavbarProps } from '@/types/translations'
 
 export default function Navbar({ lang, setLang, t }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,10 +21,15 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
     }
+    setMobileMenuOpen(false) // Close mobile menu after navigation
   }
 
   const toggleLanguage = () => {
     setLang(lang === 'en' ? 'km' : 'en')
+  }
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen)
   }
 
   return (
@@ -32,37 +38,61 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
     }`}>
       <div className="container-max">
         <div className="flex items-center justify-between py-4">
-          <h1 className="font-serif text-2xl md:text-3xl font-bold text-white">
+          <h1 className="font-serif text-xl md:text-3xl font-bold text-white">
             Kampheakroath Bungalows
           </h1>
           
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-6">
             {t.nav.map((section, index) => (
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className="text-white hover:bg-yellow-600 transition-colors duration-200 capitalize font-medium"
+                className="text-white hover:bg-yellow-600 transition-colors duration-200 capitalize font-medium text-sm lg:text-base"
               >
                 {section}
               </button>
             ))}
           </div>
 
-          <div className="flex items-center space-x-4">
+          {/* Mobile Controls */}
+          <div className="flex items-center space-x-3">
             <button
               onClick={toggleLanguage}
-              className="bg-yellow-600 hover:bg-yellow-700 text-white px-3 py-1 rounded-full text-sm font-medium transition-colors duration-200"
+              className="bg-yellow-600 hover:bg-yellow-700 text-white px-2 py-1 rounded-full text-xs md:text-sm font-medium transition-colors duration-200"
             >
               EN | ខ្មែរ
             </button>
+            
+            <button 
+              onClick={toggleMobileMenu}
+              className="md:hidden text-white p-1"
+            >
+              <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
           </div>
-
-          <button className="md:hidden text-white">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-green-900 border-t border-green-800">
+            <div className="container-max py-4">
+              <div className="flex flex-col space-y-3">
+                {t.nav.map((section, index) => (
+                  <button
+                    key={section}
+                    onClick={() => scrollToSection(section)}
+                    className="text-white hover:bg-yellow-600 transition-colors duration-200 capitalize font-medium text-base w-full text-left py-2 px-4"
+                  >
+                    {section}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   )

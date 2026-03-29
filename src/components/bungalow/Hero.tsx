@@ -14,14 +14,14 @@ export default function Hero({ t }: Props) {
       <div className="absolute inset-0 bg-black/40"></div>
       
       <motion.div 
-        className="relative z-10 h-full flex items-center justify-center text-center px-4"
+        className="relative z-10 h-full flex items-center justify-center text-center px-4 md:px-6"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <div className="max-w-4xl">
+        <div className="max-w-4xl w-full">
           <motion.h1 
-            className="font-serif text-5xl md:text-7xl font-bold text-white mb-6"
+            className="font-serif text-4xl md:text-7xl font-bold text-white mb-4 md:mb-6 text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
@@ -30,7 +30,7 @@ export default function Hero({ t }: Props) {
           </motion.h1>
           
           <motion.p 
-            className="text-xl md:text-2xl text-white mb-8"
+            className="text-lg md:text-2xl text-white mb-6 md:mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
@@ -42,7 +42,7 @@ export default function Hero({ t }: Props) {
             href="https://wa.me/855016890403"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary inline-block"
+            className="btn-primary inline-block w-full md:w-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}

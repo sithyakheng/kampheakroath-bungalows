@@ -5,7 +5,7 @@ import { Props } from '@/types/translations'
 
 export default function Location({ t }: Props) {
   return (
-    <section id="location" className="section-padding bg-yellow-50">
+    <section id="location" className="section-padding py-12 md:py-20 bg-yellow-50">
       <div className="container-max">
         <motion.div
           className="text-center mb-12"
@@ -14,11 +14,11 @@ export default function Location({ t }: Props) {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-green-900 mb-4">
-            Location
+          <h2 className="font-serif text-3xl md:text-5xl font-bold text-green-900 mb-4">
+            {t.locationTitle}
           </h2>
-          <p className="text-gray-700 text-lg">
-            Find us in the heart of Kampot, Cambodia
+          <p className="text-gray-700 text-base md:text-lg">
+            {t.locationSubtitle}
           </p>
         </motion.div>
 
@@ -37,12 +37,12 @@ export default function Location({ t }: Props) {
               allowFullScreen={true}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-96 rounded-2xl shadow-lg"
+              className="w-full h-64 md:h-96 rounded-2xl shadow-lg"
             />
           </motion.div>
 
           <motion.div
-            className="mt-8 bg-white p-8 rounded-xl shadow-lg"
+            className="mt-8 bg-white p-6 md:p-8 rounded-xl shadow-lg"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -52,13 +52,13 @@ export default function Location({ t }: Props) {
               <div>
                 <h4 className="font-semibold text-gray-800 mb-2">Address</h4>
                 <p className="text-gray-600">
-                  Unnamed Road, Traeuy Kaoh, Kampot, Cambodia
+                  {t.address}
                 </p>
               </div>
               
               <div>
                 <h4 className="font-semibold text-gray-800 mb-2">Check-out Time</h4>
-                <p className="text-gray-600">12:00 PM</p>
+                <p className="text-gray-600">{t.checkout}</p>
               </div>
             </div>
           </motion.div>

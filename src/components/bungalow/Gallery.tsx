@@ -14,15 +14,15 @@ export default function Gallery({ t }: Props) {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
-            Photo Gallery
+          <h2 className="font-serif text-3xl md:text-5xl font-bold text-white mb-4">
+            {t.galleryTitle}
           </h2>
-          <p className="text-yellow-100 text-lg">
-            Discover the beauty of our riverside retreat
+          <p className="text-yellow-100 text-base md:text-lg">
+            {t.gallerySubtitle}
           </p>
         </motion.div>
 
-        <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <motion.div
             className="break-inside-avoid overflow-hidden rounded-lg shadow-lg group relative"
             initial={{ opacity: 0, scale: 0.9 }}

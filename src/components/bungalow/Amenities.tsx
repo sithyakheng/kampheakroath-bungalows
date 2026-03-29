@@ -39,7 +39,7 @@ export default function Amenities({ t }: Props) {
   ]
 
   return (
-    <section id="amenities" className="section-padding bg-yellow-100">
+    <section id="amenities" className="section-padding py-12 md:py-20 bg-yellow-100">
       <div className="container-max">
         <motion.div
           className="text-center mb-12"
@@ -48,21 +48,21 @@ export default function Amenities({ t }: Props) {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-green-900 mb-4">
-            {t.amenitiesTitle || 'Amenities'}
+          <h2 className="font-serif text-3xl md:text-5xl font-bold text-green-900 mb-4">
+            {t.amenitiesTitle}
           </h2>
-          <p className="text-gray-700 text-lg">
-            {t.amenitiesSubtitle || 'Everything you need for a comfortable stay'}
+          <p className="text-gray-700 text-base md:text-lg">
+            {t.amenitiesSubtitle}
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {amenities.map((amenity, index) => {
             const Icon = amenity.icon
             return (
               <motion.div
                 key={index}
-                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="bg-white p-4 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -73,11 +73,11 @@ export default function Amenities({ t }: Props) {
                   <div className="bg-green-900 p-3 rounded-lg mr-4">
                     <Icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="font-serif text-xl font-semibold text-green-900">
+                  <h3 className="font-serif text-lg md:text-xl font-semibold text-green-900">
                     {amenity.title}
                   </h3>
                 </div>
-                <p className="text-gray-600">
+                <p className="text-gray-600 text-sm md:text-base">
                   {amenity.description}
                 </p>
               </motion.div>
