@@ -3,14 +3,14 @@
 import { motion } from 'framer-motion'
 
 interface HeroProps {
-  translations: {
+  t: {
     heroTitle: string
     heroSubtitle: string
     heroBtn: string
   }
 }
 
-export default function Hero({ translations }: HeroProps) {
+export default function Hero({ t }: HeroProps) {
   return (
     <section className="relative h-screen overflow-hidden">
       <img
@@ -33,7 +33,7 @@ export default function Hero({ translations }: HeroProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
           >
-            {translations.heroTitle}
+            {t.heroTitle}
           </motion.h1>
           
           <motion.p 
@@ -42,7 +42,7 @@ export default function Hero({ translations }: HeroProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
           >
-            {translations.heroSubtitle}
+            {t.heroSubtitle}
           </motion.p>
           
           <motion.a
@@ -56,7 +56,7 @@ export default function Hero({ translations }: HeroProps) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            {translations.heroBtn}
+            {t.heroBtn}
           </motion.a>
         </div>
       </motion.div>
