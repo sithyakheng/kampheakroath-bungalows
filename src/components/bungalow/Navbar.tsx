@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { NavbarProps } from '@/types/translations'
+import { Home, Images, Star, MapPin, Phone } from 'lucide-react'
+import { Dock } from '@/components/ui/dock-two'
 
 export default function Navbar({ lang, setLang, t }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false)
@@ -16,8 +18,8 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
+  const scrollToSection = (section: string) => {
+    const element = document.getElementById(section.toLowerCase())
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
     }
@@ -32,6 +34,14 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
     setMobileMenuOpen(!mobileMenuOpen)
   }
 
+  const navItems = [
+    { icon: Home, label: t.nav[0], onClick: () => scrollToSection('about') },
+    { icon: Images, label: t.nav[1], onClick: () => scrollToSection('gallery') },
+    { icon: Star, label: t.nav[2], onClick: () => scrollToSection('amenities') },
+    { icon: MapPin, label: t.nav[3], onClick: () => scrollToSection('location') },
+    { icon: Phone, label: t.nav[4], onClick: () => scrollToSection('contact') },
+  ]
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled ? 'bg-green-900 shadow-lg' : 'bg-transparent'
@@ -43,17 +53,7 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
           </h1>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            {t.nav.map((section, index) => (
-              <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className="text-white hover:bg-yellow-600 transition-colors duration-200 capitalize font-medium text-sm lg:text-base"
-              >
-                {section}
-              </button>
-            ))}
-          </div>
+          <Dock items={navItems} className="hidden md:flex" />
 
           {/* Mobile Controls */}
           <div className="flex items-center space-x-3">

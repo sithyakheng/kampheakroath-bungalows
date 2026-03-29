@@ -27,7 +27,7 @@ export default function Footer() {
           
           <div className="flex justify-center space-x-6">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/kampheakroath/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"
