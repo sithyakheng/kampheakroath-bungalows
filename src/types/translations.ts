@@ -35,3 +35,9 @@ export type Props = {
   lang?: string
   setLang?: (lang: 'en' | 'km') => void
 }
+
+export type NavbarProps = {
+  t: TranslationKeys
+  lang: 'en' | 'km'
+  setLang: (lang: 'en' | 'km') => void
+}

@@ -1,9 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Props } from '@/types/translations'
+import { NavbarProps } from '@/types/translations'
 
-export default function Navbar({ lang, setLang, t }: Props) {
+export default function Navbar({ lang, setLang, t }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
