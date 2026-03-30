@@ -87,20 +87,30 @@ export default function RoomsPage() {
                 </div>
 
                 {/* CTA Button */}
-                <motion.a
-                  href="tel:+855016890403"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-                  style={{ backgroundColor: '#c8860a' }}
-                >
-                  Call to Book
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-.465-.302-.534-.018-.168-.032-.297-.032-.465 0-.467.01-.517.018-.601.041-.708.12-.826.154-.943.186-1.124.275-1.269.34-.396.472-.565.58-.707.859-1.099.153-.563.349-.945.368-1.491.067-.336.095-.621.095-.992 0-.755-.099-1.414-.099-2.047v-4.590h1.884c.822 0 1.359.545 1.359 1.248 0 1.063.472 1.561 1.414 2.047 0 1.468-.099 2.113-.099 2.635 0 1.452-.099 2.113-.726 2.113-1.977v-4.590c0-1.455-.545-2.113-1.452-2.113h-1.884c-.822 0-1.359-.545-1.359-1.248 0-1.063-.472-1.561-1.414-2.047 0-1.468.099-2.113.099-2.635 0-1.452.099-2.113.726-2.113 1.977v4.590z"/>
-                  </svg>
-                </motion.a>
+                <div className="flex gap-3">
+                  <motion.a
+                    href="tel:+855016890403"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+                    style={{ backgroundColor: '#c8860a' }}
+                  >
+                    Call to Book
+                  </motion.a>
+                  <motion.a
+                    href="https://t.me/kampeakroath"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+                    style={{ backgroundColor: '#229ED9' }}
+                  >
+                    Telegram
+                  </motion.a>
+                </div>
               </div>
             </div>
           </div>
