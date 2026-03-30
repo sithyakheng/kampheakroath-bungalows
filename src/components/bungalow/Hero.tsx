@@ -49,6 +49,19 @@ export default function Hero({ t }: Props) {
           >
             {t.heroBtn}
           </motion.a>
+          
+          <motion.a
+            href="/rooms"
+            className="inline-flex items-center gap-3 px-6 md:px-8 py-3 md:py-4 rounded-full text-white font-semibold text-base md:text-lg transition-all duration-300 shadow-lg hover:shadow-xl w-full md:w-auto justify-center"
+            style={{ backgroundColor: '#c8860a' }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            View Rooms
+          </motion.a>
         </div>
       </motion.div>
     </section>
