@@ -204,6 +204,123 @@ export default function RoomsPage() {
               </div>
             </div>
           </div>
+
+          {/* House Villa Card */}
+          <div className="mb-12">
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+              {/* Cover Image */}
+              <div className="relative h-64 md:h-80">
+                <img
+                  src="https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-03-30_15-01-57.jpg"
+                  alt="House Villa"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 md:p-8">
+                <motion.h2
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                  className="font-serif text-3xl md:text-4xl font-bold text-green-900 mb-4"
+                  style={{ fontFamily: 'Playfair Display, serif' }}
+                >
+                  House Villa
+                </motion.h2>
+
+                {/* Description */}
+                <p className="text-gray-600 mb-8 leading-relaxed">
+                  A cozy and comfortable option for couples or small families, our House Villa provides an intimate setting with all essential amenities for a relaxing riverside getaway.
+                </p>
+
+                {/* Features */}
+                <div className="flex flex-wrap gap-3 mb-6">
+                  <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                    River View
+                  </span>
+                  <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                    Wooden House
+                  </span>
+                </div>
+
+                {/* Photo Gallery */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                  <img
+                    src="https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-03-30_15-03-49.jpg"
+                    alt="House Villa River View"
+                    className="w-full h-48 object-cover rounded-lg"
+                  />
+                </div>
+
+                {/* CTA Button */}
+                <motion.a
+                  href="https://wa.me/855016890403"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+                  style={{ backgroundColor: '#c8860a' }}
+                >
+                  WhatsApp to Book
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-.465-.302-.534-.018-.168-.032-.297-.032-.465 0-.467.01-.517.018-.601.041-.708.12-.826.154-.943.186-1.124.275-1.269.34-.396.472-.565.58-.707.859-1.099.153-.563.349-.945.368-1.491.067-.336.095-.621.095-.992 0-.755-.099-1.414-.099-2.047v-4.590h1.884c.822 0 1.359.545 1.359 1.248 0 1.063.472 1.561 1.414 2.047 0 1.468-.099 2.113-.099 2.635 0-1.452.099-2.113.726-2.113 1.977v4.590z"/>
+                  </svg>
+                </motion.a>
+              </div>
+            </div>
+          </div>
+
+          {/* Villa V.I.P Card */}
+          <div className="mb-12">
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+              {/* Cover Image */}
+              <div className="relative h-64 md:h-80">
+                <img
+                  src="https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-03-30_15-05-09.jpg"
+                  alt="Villa V.I.P"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 md:p-8">
+                <motion.h2
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                  className="font-serif text-3xl md:text-4xl font-bold text-green-900 mb-4"
+                  style={{ fontFamily: 'Playfair Display, serif' }}
+                >
+                  Villa V.I.P
+                </motion.h2>
+
+                {/* Description */}
+                <p className="text-gray-600 mb-8 leading-relaxed">
+                  The ultimate in luxury and privacy, our Villa V.I.P offers exclusive amenities and personalized service for discerning guests seeking the most premium riverside experience.
+                </p>
+
+                {/* CTA Button */}
+                <motion.a
+                  href="https://wa.me/855016890403"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+                  style={{ backgroundColor: '#c8860a' }}
+                >
+                  WhatsApp to Book
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-.465-.302-.534-.018-.168-.032-.297-.032-.465 0-.467.01-.517.018-.601.041-.708.12-.826.154-.943.186-1.124.275-1.269.34-.396.472-.565.58-.707.859-1.099.153-.563.349-.945.368-1.491.067-.336.095-.621.095-.992 0-.755-.099-1.414-.099-2.047v-4.590h1.884c.822 0 1.359.545 1.359 1.248 0 1.063.472 1.561 1.414 2.047 0 1.468-.099 2.113-.099 2.635 0-1.452.099-2.113.726-2.113 1.977v4.590z"/>
+                  </svg>
+                </motion.a>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </div>
