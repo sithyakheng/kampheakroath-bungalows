@@ -1,391 +1,130 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useState } from 'react'
 import Link from 'next/link'
-import { ArrowLeft } from 'lucide-react'
 
 const translations = {
   en: {
     title: "Our Rooms & Villas",
-    back: "Back to Home",
-    callBtn: "{t.callBtn}",
-    telegramBtn: "{t.telegramBtn}",
-    features: "Features",
-    beds: "Beds",
-    rooms: "Rooms",
+    back: "← Back to Home",
+    callBtn: "Call to Book",
+    telegramBtn: "Telegram",
+    ac: "AC",
     riverView: "River View",
     woodenHouse: "Wooden House",
-    ac: "AC",
-    villaNames: {
-      twin: "Villa Twin",
-      family: "Villa Family",
-      house: "House Villa",
-      vip: "Villa V.I.P"
-    }
   },
   km: {
-    title: "បន្ទប់និងវីឡារ",
-    back: "귀ត់ទំព័រដើម",
+    title: "បន្ទប់ និងវីឡារបស់យើង",
+    back: "← ត្រឡប់ទៅទំព័រដើម",
     callBtn: "ហៅដើម្បីកក់",
     telegramBtn: "តេឡេក្រាម",
-    features: "លក្ខណៈពិស",
-    beds: "គ្រែ",
-    rooms: "បន្ទប់និងវីឡារ",
-    riverView: "ទិដ្ឋភាពទន្លេ",
-    woodenHouse: "ផ្ទះវីឡា",
     ac: "ម៉ាស៊ីនត្រជាក់",
-    villaNames: {
-      twin: "វីឡា ទ្វីន",
-      family: "វីឡា គ្រួសារ",
-      house: "ផ្ទះវីឡា",
-      vip: "វីឡា វីអាយ ភី"
-    }
+    riverView: "ទិដ្ឋភាពទន្លេ",
+    woodenHouse: "ផ្ទះឈើ",
   }
 }
 
-export default function RoomsPage() {
-  const [lang, setLang] = useState<'en' | 'km'>('en')
+const rooms = [
+  {
+    name: "Villa Twin",
+    nameKm: "វីឡា ទ្វីន",
+    cover: "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/villatwin.jpg",
+    photos: [
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/villatwin1.jpg",
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/villatwin2.jpg",
+    ],
+    features: ["AC", "4 Beds"],
+    featuresKm: ["ម៉ាស៊ីនត្រជាក់", "៤ គ្រែ"],
+  },
+  {
+    name: "Villa Family",
+    nameKm: "វីឡា គ្រួសារ",
+    cover: "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-03-30_14-55-05.jpg",
+    photos: [
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-03-30_14-55-07.jpg",
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-03-30_14-55-09.jpg",
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-03-30_14-55-11.jpg",
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-03-30_14-55-14.jpg",
+    ],
+    features: ["3 Rooms", "6 Beds"],
+    featuresKm: ["៣ បន្ទប់", "៦ គ្រែ"],
+  },
+  {
+    name: "House Villa",
+    nameKm: "ផ្ទះវីឡា",
+    cover: "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-03-30_15-01-57.jpg",
+    photos: [
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-03-30_15-03-49.jpg",
+    ],
+    features: ["River View", "Wooden House"],
+    featuresKm: ["ទិដ្ឋភាពទន្លេ", "ផ្ទះឈើ"],
+  },
+  {
+    name: "Villa V.I.P",
+    nameKm: "វីឡា វី អាយ ភី",
+    cover: "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-03-30_15-05-09.jpg",
+    photos: [],
+    features: [],
+    featuresKm: [],
+  },
+]
 
 export default function RoomsPage() {
   const [lang, setLang] = useState<'en' | 'km'>('en')
   const t = translations[lang]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-yellow-50">
-      {/* Header */}
-      <div className="bg-green-900 text-white shadow-lg">
-        <div className="container-max py-4">
-          <div className="flex items-center justify-between">
-            <Link 
-              href="/" 
-              className="flex items-center gap-2 text-white hover:text-yellow-300 transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              <span className="font-medium">{t.back}</span>
-            </Link>
-            <h1 className="font-serif text-2xl md:text-3xl font-bold">
-              {t.title}
-            </h1>
-          </div>
-          {/* Language Toggle */}
-          <button 
+    <main style={{ backgroundColor: '#f5f0e8', minHeight: '100vh', padding: '2rem' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+          <Link href="/" style={{ color: '#1a3a2a', fontWeight: 'bold', textDecoration: 'none' }}>
+            {t.back}
+          </Link>
+          <button
             onClick={() => setLang(lang === 'en' ? 'km' : 'en')}
-            className="fixed top-4 right-4 z-50 px-4 py-2 rounded-full font-semibold text-sm"
-            style={{ backgroundColor: '#c8860a', color: 'white' }}
-          >
+            style={{ backgroundColor: '#c8860a', color: 'white', border: 'none', borderRadius: '9999px', padding: '0.5rem 1rem', cursor: 'pointer', fontWeight: 'bold' }}>
             {lang === 'en' ? 'ខ្មែរ' : 'EN'}
           </button>
         </div>
-      </div>
 
-      {/* Content */}
-      <div className="container-max py-12 md:py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          {/* Villa Twin Card */}
-          <div className="mb-12">
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-              {/* Cover Image */}
-              <div className="relative h-64 md:h-80">
-                <img
-                  src="https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/villatwin.jpg"
-                  alt="Villa Twin"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-              </div>
+        <h1 style={{ fontFamily: 'Playfair Display, serif', color: '#1a3a2a', fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center' }}>
+          {t.title}
+        </h1>
 
-              {/* Content */}
-              <div className="p-6 md:p-8">
-                <motion.h2
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                  className="font-serif text-3xl md:text-4xl font-bold text-green-900 mb-4"
-                  style={{ fontFamily: 'Playfair Display, serif' }}
-                >
-                  {t.villaNames.twin}
-                </motion.h2>
-
-                {/* Features */}
-                <div className="flex flex-wrap gap-3 mb-6">
-                  <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                    AC
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>
+          {rooms.map((room) => (
+            <div key={room.name} style={{ backgroundColor: 'white', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
+              <img src={room.cover} alt={room.name} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+              <div style={{ padding: '1.5rem' }}>
+                <h2 style={{ fontFamily: 'Playfair Display, serif', color: '#1a3a2a', fontSize: '1.5rem', marginBottom: '0.5rem' }}>
+                  {lang === 'en' ? room.name : room.nameKm}
+                </h2>
+                {(lang === 'en' ? room.features : room.featuresKm).map((f) => (
+                  <span key={f} style={{ display: 'inline-block', backgroundColor: '#e8d5b0', color: '#1a3a2a', borderRadius: '9999px', padding: '0.25rem 0.75rem', marginRight: '0.5rem', marginBottom: '0.5rem', fontSize: '0.875rem' }}>
+                    {f}
                   </span>
-                  <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                    {t.beds}
-                  </span>
-                </div>
-
-                {/* Description */}
-                <p className="text-gray-600 mb-8 leading-relaxed">
-                  Experience luxury and comfort in our spacious Villa Twin, perfect for families or groups seeking a premium riverside retreat with modern amenities and stunning views.
-                </p>
-
-                {/* Photo Gallery */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                  <img
-                    src="https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/villatwin1.jpg"
-                    alt="Villa Twin Interior 1"
-                    className="w-full h-48 object-cover rounded-lg"
-                  />
-                  <img
-                    src="https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/villatwin2.jpg"
-                    alt="Villa Twin Interior 2"
-                    className="w-full h-48 object-cover rounded-lg"
-                  />
-                </div>
-
-                {/* CTA Button */}
-                <div className="flex gap-3">
-                  <motion.a
-                    href="tel:+855016890403"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-                    style={{ backgroundColor: '#c8860a' }}
-                  >
+                ))}
+                {room.photos.length > 0 && (
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem', marginTop: '1rem' }}>
+                    {room.photos.map((photo, i) => (
+                      <img key={i} src={photo} alt="" style={{ width: '100%', height: '80px', objectFit: 'cover', borderRadius: '0.5rem' }} />
+                    ))}
+                  </div>
+                )}
+                <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1rem' }}>
+                  <a href="tel:+855016890403" style={{ flex: 1, backgroundColor: '#1a3a2a', color: 'white', textAlign: 'center', padding: '0.75rem', borderRadius: '0.5rem', textDecoration: 'none', fontWeight: 'bold' }}>
                     {t.callBtn}
-                  </motion.a>
-                  <motion.a
-                    href="https://t.me/kampeakroath"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-                    style={{ backgroundColor: '#229ED9' }}
-                  >
+                  </a>
+                  <a href="https://t.me/kampeakroath" target="_blank" rel="noopener noreferrer" style={{ flex: 1, backgroundColor: '#229ED9', color: 'white', textAlign: 'center', padding: '0.75rem', borderRadius: '0.5rem', textDecoration: 'none', fontWeight: 'bold' }}>
                     {t.telegramBtn}
-                  </motion.a>
+                  </a>
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* More Rooms Coming Soon */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-center py-12"
-          >
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <h3 className="font-serif text-2xl md:text-3xl font-bold text-green-900 mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
-                More Rooms Coming Soon
-              </h3>
-              <p className="text-gray-600 text-lg">
-                We're constantly expanding our accommodation options. Check back soon for more room types and special offers.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Villa Family Card */}
-          <div className="mb-12">
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-              {/* Cover Image */}
-              <div className="relative h-64 md:h-80">
-                <img
-                  src="https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-03-30_14-55-05.jpg"
-                  alt="Villa Family"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6 md:p-8">
-                <motion.h2
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                  className="font-serif text-3xl md:text-4xl font-bold text-green-900 mb-4"
-                  style={{ fontFamily: 'Playfair Display, serif' }}
-                >
-                  Villa Family
-                </motion.h2>
-
-                {/* Features */}
-                <div className="flex flex-wrap gap-3 mb-6">
-                  <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                    3 Rooms
-                  </span>
-                  <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                    6 Beds
-                  </span>
-                </div>
-
-                {/* Description */}
-                <p className="text-gray-600 mb-8 leading-relaxed">
-                  Perfect for larger families or groups, our Villa Family offers spacious accommodation with multiple rooms and ample sleeping arrangements, ideal for extended stays.
-                </p>
-
-                {/* Photo Gallery */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                  <img
-                    src="https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-03-30_14-55-07.jpg"
-                    alt="Villa Family Interior 1"
-                    className="w-full h-48 object-cover rounded-lg"
-                  />
-                  <img
-                    src="https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-03-30_14-55-09.jpg"
-                    alt="Villa Family Interior 2"
-                    className="w-full h-48 object-cover rounded-lg"
-                  />
-                  <img
-                    src="https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-03-30_14-55-11.jpg"
-                    alt="Villa Family Interior 3"
-                    className="w-full h-48 object-cover rounded-lg"
-                  />
-                  <img
-                    src="https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-03-30_14-55-14.jpg"
-                    alt="Villa Family Interior 4"
-                    className="w-full h-48 object-cover rounded-lg"
-                  />
-                </div>
-
-                {/* CTA Button */}
-                <motion.a
-                  href="tel:+855016890403"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-                  style={{ backgroundColor: '#c8860a' }}
-                >
-                  {t.callBtn}
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-.465-.302-.534-.018-.168-.032-.297-.032-.465 0-.467.01-.517.018-.601.041-.708.12-.826.154-.943.186-1.124.275-1.269.34-.396.472-.565.58-.707.859-1.099.153-.563.349-.945.368-1.491.067-.336.095-.621.095-.992 0-.755-.099-1.414-.099-2.047v-4.590h1.884c.822 0 1.359.545 1.359 1.248 0 1.063.472 1.561 1.414 2.047 0 1.468-.099 2.113-.099 2.635 0-1.452.099-2.113.726-2.113 1.977v4.590z"/>
-                  </svg>
-                </motion.a>
-              </div>
-            </div>
-          </div>
-
-          {/* House Villa Card */}
-          <div className="mb-12">
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-              {/* Cover Image */}
-              <div className="relative h-64 md:h-80">
-                <img
-                  src="https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-03-30_15-01-57.jpg"
-                  alt="House Villa"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6 md:p-8">
-                <motion.h2
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                  className="font-serif text-3xl md:text-4xl font-bold text-green-900 mb-4"
-                  style={{ fontFamily: 'Playfair Display, serif' }}
-                >
-                  House Villa
-                </motion.h2>
-
-                {/* Description */}
-                <p className="text-gray-600 mb-8 leading-relaxed">
-                  A cozy and comfortable option for couples or small families, our House Villa provides an intimate setting with all essential amenities for a relaxing riverside getaway.
-                </p>
-
-                {/* Features */}
-                <div className="flex flex-wrap gap-3 mb-6">
-                  <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                    River View
-                  </span>
-                  <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                    Wooden House
-                  </span>
-                </div>
-
-                {/* Photo Gallery */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                  <img
-                    src="https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-03-30_15-03-49.jpg"
-                    alt="House Villa River View"
-                    className="w-full h-48 object-cover rounded-lg"
-                  />
-                </div>
-
-                {/* CTA Button */}
-                <motion.a
-                  href="tel:+855016890403"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-                  style={{ backgroundColor: '#c8860a' }}
-                >
-                  {t.callBtn}
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-.465-.302-.534-.018-.168-.032-.297-.032-.465 0-.467.01-.517.018-.601.041-.708.12-.826.154-.943.186-1.124.275-1.269.34-.396.472-.565.58-.707.859-1.099.153-.563.349-.945.368-1.491.067-.336.095-.621.095-.992 0-.755-.099-1.414-.099-2.047v-4.590h1.884c.822 0 1.359.545 1.359 1.248 0 1.063.472 1.561 1.414 2.047 0 1.468-.099 2.113-.099 2.635 0-1.452.099-2.113.726-2.113 1.977v4.590z"/>
-                  </svg>
-                </motion.a>
-              </div>
-            </div>
-          </div>
-
-          {/* Villa V.I.P Card */}
-          <div className="mb-12">
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-              {/* Cover Image */}
-              <div className="relative h-64 md:h-80">
-                <img
-                  src="https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-03-30_15-05-09.jpg"
-                  alt="Villa V.I.P"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6 md:p-8">
-                <motion.h2
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                  className="font-serif text-3xl md:text-4xl font-bold text-green-900 mb-4"
-                  style={{ fontFamily: 'Playfair Display, serif' }}
-                >
-                  Villa V.I.P
-                </motion.h2>
-
-                {/* Description */}
-                <p className="text-gray-600 mb-8 leading-relaxed">
-                  The ultimate in luxury and privacy, our Villa V.I.P offers exclusive amenities and personalized service for discerning guests seeking the most premium riverside experience.
-                </p>
-
-                {/* CTA Button */}
-                <motion.a
-                  href="tel:+855016890403"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-                  style={{ backgroundColor: '#c8860a' }}
-                >
-                  {t.callBtn}
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-.465-.302-.534-.018-.168-.032-.297-.032-.465 0-.467.01-.517.018-.601.041-.708.12-.826.154-.943.186-1.124.275-1.269.34-.396.472-.565.58-.707.859-1.099.153-.563.349-.945.368-1.491.067-.336.095-.621.095-.992 0-.755-.099-1.414-.099-2.047v-4.590h1.884c.822 0 1.359.545 1.359 1.248 0 1.063.472 1.561 1.414 2.047 0 1.468-.099 2.113-.099 2.635 0-1.452.099-2.113.726-2.113 1.977v4.590z"/>
-                  </svg>
-                </motion.a>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
+    </main>
   )
 }
