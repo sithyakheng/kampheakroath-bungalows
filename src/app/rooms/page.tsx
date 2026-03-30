@@ -4,7 +4,52 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 
+const translations = {
+  en: {
+    title: "Our Rooms & Villas",
+    back: "Back to Home",
+    callBtn: "{t.callBtn}",
+    telegramBtn: "{t.telegramBtn}",
+    features: "Features",
+    beds: "Beds",
+    rooms: "Rooms",
+    riverView: "River View",
+    woodenHouse: "Wooden House",
+    ac: "AC",
+    villaNames: {
+      twin: "Villa Twin",
+      family: "Villa Family",
+      house: "House Villa",
+      vip: "Villa V.I.P"
+    }
+  },
+  km: {
+    title: "បន្ទប់និងវីឡារ",
+    back: "귀ត់ទំព័រដើម",
+    callBtn: "ហៅដើម្បីកក់",
+    telegramBtn: "តេឡេក្រាម",
+    features: "លក្ខណៈពិស",
+    beds: "គ្រែ",
+    rooms: "បន្ទប់និងវីឡារ",
+    riverView: "ទិដ្ឋភាពទន្លេ",
+    woodenHouse: "ផ្ទះវីឡា",
+    ac: "ម៉ាស៊ីនត្រជាក់",
+    villaNames: {
+      twin: "វីឡា ទ្វីន",
+      family: "វីឡា គ្រួសារ",
+      house: "ផ្ទះវីឡា",
+      vip: "វីឡា វីអាយ ភី"
+    }
+  }
+}
+
 export default function RoomsPage() {
+  const [lang, setLang] = useState<'en' | 'km'>('en')
+
+export default function RoomsPage() {
+  const [lang, setLang] = useState<'en' | 'km'>('en')
+  const t = translations[lang]
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-yellow-50">
       {/* Header */}
@@ -16,12 +61,20 @@ export default function RoomsPage() {
               className="flex items-center gap-2 text-white hover:text-yellow-300 transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />
-              <span className="font-medium">Back to Home</span>
+              <span className="font-medium">{t.back}</span>
             </Link>
             <h1 className="font-serif text-2xl md:text-3xl font-bold">
-              Our Rooms & Villas
+              {t.title}
             </h1>
           </div>
+          {/* Language Toggle */}
+          <button 
+            onClick={() => setLang(lang === 'en' ? 'km' : 'en')}
+            className="fixed top-4 right-4 z-50 px-4 py-2 rounded-full font-semibold text-sm"
+            style={{ backgroundColor: '#c8860a', color: 'white' }}
+          >
+            {lang === 'en' ? 'ខ្មែរ' : 'EN'}
+          </button>
         </div>
       </div>
 
@@ -54,7 +107,7 @@ export default function RoomsPage() {
                   className="font-serif text-3xl md:text-4xl font-bold text-green-900 mb-4"
                   style={{ fontFamily: 'Playfair Display, serif' }}
                 >
-                  Villa Twin
+                  {t.villaNames.twin}
                 </motion.h2>
 
                 {/* Features */}
@@ -63,7 +116,7 @@ export default function RoomsPage() {
                     AC
                   </span>
                   <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                    4 Beds
+                    {t.beds}
                   </span>
                 </div>
 
@@ -97,7 +150,7 @@ export default function RoomsPage() {
                     className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
                     style={{ backgroundColor: '#c8860a' }}
                   >
-                    Call to Book
+                    {t.callBtn}
                   </motion.a>
                   <motion.a
                     href="https://t.me/kampeakroath"
@@ -108,7 +161,7 @@ export default function RoomsPage() {
                     className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
                     style={{ backgroundColor: '#229ED9' }}
                   >
-                    Telegram
+                    {t.telegramBtn}
                   </motion.a>
                 </div>
               </div>
@@ -206,7 +259,7 @@ export default function RoomsPage() {
                   className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
                   style={{ backgroundColor: '#c8860a' }}
                 >
-                  Call to Book
+                  {t.callBtn}
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M17.472 14.382c-.297-.149-.465-.302-.534-.018-.168-.032-.297-.032-.465 0-.467.01-.517.018-.601.041-.708.12-.826.154-.943.186-1.124.275-1.269.34-.396.472-.565.58-.707.859-1.099.153-.563.349-.945.368-1.491.067-.336.095-.621.095-.992 0-.755-.099-1.414-.099-2.047v-4.590h1.884c.822 0 1.359.545 1.359 1.248 0 1.063.472 1.561 1.414 2.047 0 1.468-.099 2.113-.099 2.635 0-1.452.099-2.113.726-2.113 1.977v4.590z"/>
                   </svg>
@@ -274,7 +327,7 @@ export default function RoomsPage() {
                   className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
                   style={{ backgroundColor: '#c8860a' }}
                 >
-                  Call to Book
+                  {t.callBtn}
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M17.472 14.382c-.297-.149-.465-.302-.534-.018-.168-.032-.297-.032-.465 0-.467.01-.517.018-.601.041-.708.12-.826.154-.943.186-1.124.275-1.269.34-.396.472-.565.58-.707.859-1.099.153-.563.349-.945.368-1.491.067-.336.095-.621.095-.992 0-.755-.099-1.414-.099-2.047v-4.590h1.884c.822 0 1.359.545 1.359 1.248 0 1.063.472 1.561 1.414 2.047 0 1.468-.099 2.113-.099 2.635 0-1.452.099-2.113.726-2.113 1.977v4.590z"/>
                   </svg>
@@ -323,7 +376,7 @@ export default function RoomsPage() {
                   className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
                   style={{ backgroundColor: '#c8860a' }}
                 >
-                  Call to Book
+                  {t.callBtn}
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M17.472 14.382c-.297-.149-.465-.302-.534-.018-.168-.032-.297-.032-.465 0-.467.01-.517.018-.601.041-.708.12-.826.154-.943.186-1.124.275-1.269.34-.396.472-.565.58-.707.859-1.099.153-.563.349-.945.368-1.491.067-.336.095-.621.095-.992 0-.755-.099-1.414-.099-2.047v-4.590h1.884c.822 0 1.359.545 1.359 1.248 0 1.063.472 1.561 1.414 2.047 0 1.468-.099 2.113-.099 2.635 0-1.452.099-2.113.726-2.113 1.977v4.590z"/>
                   </svg>
