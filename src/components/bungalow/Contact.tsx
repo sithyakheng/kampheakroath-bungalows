@@ -1,5 +1,6 @@
 'use client'
 
+import { Phone } from 'lucide-react'
 import { Props } from '@/types/translations'
 
 export default function Contact({ t }: Props) {
@@ -29,7 +30,15 @@ export default function Contact({ t }: Props) {
             Telegram
           </a>
 
-          <p className="mt-6 md:mt-8 text-[#1a3a2a] font-medium text-base md:text-lg"> 016 890 403</p>
+          <div className="flex items-center gap-2 mt-6 md:mt-8">
+            <Phone className="w-5 h-5 text-[#1a3a2a]" />
+            <p className="text-[#1a3a2a] font-medium text-base md:text-lg"> 016 890 403</p>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <Phone className="w-5 h-5 text-[#1a3a2a]" />
+            <p className="text-[#1a3a2a] font-medium text-base md:text-lg">012 860 480</p>
+          </div>
           <a href="mailto:kampheakroath@gmail.com" className="text-[#c8860a] hover:underline text-base md:text-lg">
             kampheakroath@gmail.com
           </a>
