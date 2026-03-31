@@ -113,7 +113,7 @@ export default function RoomsPage() {
                   </div>
                 )}
                 <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1rem' }}>
-                  <a href="tel:+855016890403" style={{ flex: 1, backgroundColor: '#1a3a2a', color: 'white', textAlign: 'center', padding: '0.75rem', borderRadius: '0.5rem', textDecoration: 'none', fontWeight: 'bold' }}>
+                  <a href="tel:+16143534055" style={{ flex: 1, backgroundColor: '#1a3a2a', color: 'white', textAlign: 'center', padding: '0.75rem', borderRadius: '0.5rem', textDecoration: 'none', fontWeight: 'bold' }}>
                     {t.callBtn}
                   </a>
                   <a href="https://t.me/kampeakroath" target="_blank" rel="noopener noreferrer" style={{ flex: 1, backgroundColor: '#229ED9', color: 'white', textAlign: 'center', padding: '0.75rem', borderRadius: '0.5rem', textDecoration: 'none', fontWeight: 'bold' }}>

@@ -11,7 +11,7 @@ export default function Contact({ t }: Props) {
         </h2>
         <p className="text-gray-600 mb-8 md:mb-12">{t.contactSubtitle}</p>
         <div className="flex flex-col items-center gap-4 md:gap-6">
-          <a href="https://wa.me/855016890403" target="_blank" rel="noopener noreferrer"
+          <a href="https://wa.me/16143534055" target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-3 px-6 md:px-8 py-4 rounded-full text-white font-semibold w-full md:w-64 justify-center"
             style={{ backgroundColor: '#25D366' }}>
             WhatsApp Us
