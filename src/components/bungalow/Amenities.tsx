@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Wifi, Car, Waves, Utensils, Shirt, Coffee, Fish } from 'lucide-react'
+import { Wifi, Car, Waves, Utensils, Shirt, Coffee, Fish, Truck } from 'lucide-react'
 import { Props } from '@/types/translations'
 
 export default function Amenities({ t }: Props) {
@@ -12,7 +12,7 @@ export default function Amenities({ t }: Props) {
       description: t.wifiDesc || 'High-speed internet available throughout the property'
     },
     {
-      icon: Car,
+      icon: Truck,
       title: t.parking || 'Free Parking',
       description: t.parkingDesc || 'Secure parking space for all our guests'
     },
@@ -40,6 +40,11 @@ export default function Amenities({ t }: Props) {
       icon: Fish,
       title: t.fishing || 'Fishing',
       description: t.fishingDesc || 'Enjoy fishing in the nearby river'
+    },
+    {
+      icon: Truck,
+      title: t.pickup || 'Free Pickup (3+ Nights)',
+      description: t.pickupDesc || 'Free pickup service for stays of 3 nights or more'
     }
   ]
 

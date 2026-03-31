@@ -24,6 +24,8 @@ export type TranslationKeys = {
   breakfastDesc: string
   fishing: string
   fishingDesc: string
+  pickup: string
+  pickupDesc: string
   locationTitle: string
   locationSubtitle: string
   address: string
