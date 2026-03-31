@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Wifi, Car, Waves, Utensils, Shirt, Coffee } from 'lucide-react'
+import { Wifi, Car, Waves, Utensils, Shirt, Coffee, Fish } from 'lucide-react'
 import { Props } from '@/types/translations'
 
 export default function Amenities({ t }: Props) {
@@ -35,6 +35,11 @@ export default function Amenities({ t }: Props) {
       icon: Coffee,
       title: t.breakfast || 'Paid Breakfast',
       description: t.breakfastDesc || 'Start your day with a delicious breakfast'
+    },
+    {
+      icon: Fish,
+      title: t.fishing || 'Fishing',
+      description: t.fishingDesc || 'Enjoy fishing in the nearby river'
     }
   ]
 
