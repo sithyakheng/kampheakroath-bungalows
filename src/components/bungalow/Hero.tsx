@@ -18,18 +18,18 @@ export default function Hero({ t }: Props) {
       
       {showVideo && (
         <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4">
-          <div className="relative w-full max-w-4xl">
+          <div className="relative w-full max-w-3xl">
             <button
               onClick={() => setShowVideo(false)}
-              className="absolute -top-12 right-0 text-white text-xl font-semibold hover:text-yellow-400 transition-colors"
+              className="absolute -top-16 right-0 text-white text-3xl font-bold hover:text-yellow-400 transition-colors"
             >
-              Close Video ✕
+              ✕
             </button>
             <video
               src="https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/IMG_2966.MP4"
               controls
               autoPlay
-              className="w-full rounded-lg"
+              className="w-full rounded-lg aspect-video"
             />
           </div>
         </div>
