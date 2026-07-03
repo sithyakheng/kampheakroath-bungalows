@@ -2,8 +2,11 @@
 
 import { motion } from 'framer-motion'
 import { Props } from '@/types/translations'
+import { useState } from 'react'
 
 export default function Hero({ t }: Props) {
+  const [showVideo, setShowVideo] = useState(false)
+
   return (
     <section className="relative h-screen overflow-hidden">
       <img
@@ -12,6 +15,25 @@ export default function Hero({ t }: Props) {
         className="w-full h-full object-cover absolute inset-0"
       />
       <div className="absolute inset-0 bg-black/40"></div>
+      
+      {showVideo && (
+        <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4">
+          <div className="relative w-full max-w-4xl">
+            <button
+              onClick={() => setShowVideo(false)}
+              className="absolute -top-12 right-0 text-white text-xl font-semibold hover:text-yellow-400 transition-colors"
+            >
+              Close Video ✕
+            </button>
+            <video
+              src="https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/IMG_2966.MP4"
+              controls
+              autoPlay
+              className="w-full rounded-lg"
+            />
+          </div>
+        </div>
+      )}
       
       <motion.div 
         className="relative z-10 h-full flex items-center justify-center text-center px-4 md:px-6"
@@ -52,7 +74,7 @@ export default function Hero({ t }: Props) {
           
           <motion.a
             href="/rooms"
-            className="inline-flex items-center gap-3 px-6 md:px-8 py-3 md:py-4 rounded-full text-white font-semibold text-base md:text-lg transition-all duration-300 shadow-lg hover:shadow-xl w-full md:w-auto justify-center"
+            className="inline-flex items-center gap-3 px-6 md:px-8 py-3 md:py-4 rounded-full text-white font-semibold text-base md:text-lg transition-all duration-300 shadow-lg hover:shadow-xl w-full md:w-auto justify-center mt-3"
             style={{ backgroundColor: '#c8860a' }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -62,6 +84,19 @@ export default function Hero({ t }: Props) {
           >
             View Rooms
           </motion.a>
+          
+          <motion.button
+            onClick={() => setShowVideo(true)}
+            className="inline-flex items-center gap-3 px-6 md:px-8 py-3 md:py-4 rounded-full text-white font-semibold text-base md:text-lg transition-all duration-300 shadow-lg hover:shadow-xl w-full md:w-auto justify-center mt-3"
+            style={{ backgroundColor: '#1a3a2a' }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.0 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Tour Video
+          </motion.button>
         </div>
       </motion.div>
     </section>
