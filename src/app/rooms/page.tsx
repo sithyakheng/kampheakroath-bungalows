@@ -89,9 +89,6 @@ const rooms: Room[] = [
       "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_15-13-55.jpg",
       "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_15-13-56.jpg",
       "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_15-13-57.jpg",
-      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_15-14-03.jpg",
-      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_15-14-05.jpg",
-      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_15-14-08.jpg",
     ],
     videos: [
       "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/IMG_3675.MP4",
