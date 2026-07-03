@@ -24,7 +24,17 @@ const translations = {
   }
 }
 
-const rooms = [
+type Room = {
+  name: string
+  nameKm: string
+  cover: string
+  photos: string[]
+  videos?: string[]
+  features: string[]
+  featuresKm: string[]
+}
+
+const rooms: Room[] = [
   {
     name: "Villa Twin",
     nameKm: "វីឡា ទ្វីន",
@@ -66,6 +76,29 @@ const rooms = [
     photos: [],
     features: [],
     featuresKm: [],
+  },
+  {
+    name: "Private Villa",
+    nameKm: "វីឡា ឯកជន",
+    cover: "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_15-13-40.jpg",
+    photos: [
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_15-13-40.jpg",
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_15-13-45.jpg",
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_15-13-46.jpg",
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_15-13-54.jpg",
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_15-13-55.jpg",
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_15-13-56.jpg",
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_15-13-57.jpg",
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_15-14-03.jpg",
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_15-14-05.jpg",
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_15-14-08.jpg",
+    ],
+    videos: [
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/IMG_3675.MP4",
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/IMG_4687.MOV",
+    ],
+    features: ["3 Bedrooms", "1 Eating Room", "1 Karaoke"],
+    featuresKm: ["៣ បន្ទប់គេង", "១ បន្ទប់ញ៉ាំ", "១ ការ៉ូកេ"],
   },
 ]
 
@@ -109,6 +142,15 @@ export default function RoomsPage() {
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem', marginTop: '1rem' }}>
                     {room.photos.map((photo, i) => (
                       <img key={i} src={photo} alt="" style={{ width: '100%', height: '80px', objectFit: 'cover', borderRadius: '0.5rem' }} />
+                    ))}
+                  </div>
+                )}
+                {room.videos && room.videos.length > 0 && (
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.5rem', marginTop: '1rem' }}>
+                    {room.videos.map((video, i) => (
+                      <video key={i} controls style={{ width: '100%', height: '80px', objectFit: 'cover', borderRadius: '0.5rem' }}>
+                        <source src={video} type={video.endsWith('.mp4') ? 'video/mp4' : 'video/quicktime'} />
+                      </video>
                     ))}
                   </div>
                 )}
