@@ -97,6 +97,18 @@ const rooms: Room[] = [
     features: ["3 Bedrooms", "1 Eating Room", "1 Karaoke"],
     featuresKm: ["៣ បន្ទប់គេង", "១ បន្ទប់ញ៉ាំ", "១ ការ៉ូកេ"],
   },
+  {
+    name: "ក្រពុំឈូក",
+    nameKm: "ក្រពុំឈូក",
+    cover: "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_16-38-54.jpg",
+    photos: [
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_16-38-54.jpg",
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_16-38-57.jpg",
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_16-39-11.jpg",
+    ],
+    features: [],
+    featuresKm: [],
+  },
 ]
 
 export default function RoomsPage() {
