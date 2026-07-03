@@ -65,6 +65,8 @@ const rooms: Room[] = [
     cover: "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-03-30_15-01-57.jpg",
     photos: [
       "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-03-30_15-03-49.jpg",
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_17-25-09.jpg",
+      "https://qsktgiqdraezgysyjolk.supabase.co/storage/v1/object/public/imge/photo_2026-07-03_17-25-13.jpg",
     ],
     features: ["River View", "Wooden House"],
     featuresKm: ["ទិដ្ឋភាពទន្លេ", "ផ្ទះឈើ"],
